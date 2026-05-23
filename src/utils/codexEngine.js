@@ -504,3 +504,4 @@ function createCanvasNode(config) {
 function clamp(value) {
   return Math.max(24, Math.min(98, value));
 }
+
