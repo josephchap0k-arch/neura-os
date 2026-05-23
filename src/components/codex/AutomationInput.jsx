@@ -23,10 +23,11 @@ function AutomationInput() {
 
   return (
     <section className="glass-panel cinematic-panel codex-input-panel">
-      <div className="panel-heading compact-panel-heading">
+      <div className="panel-heading compact-panel-heading codex-input-heading">
         <div>
-          <span className="panel-kicker">CODEX</span>
+          <span className="panel-kicker">Builder</span>
           <h2>¿Qué querés automatizar?</h2>
+          <p>Describilo en una frase. NEURA arma el flujo por vos.</p>
         </div>
       </div>
 
@@ -34,7 +35,7 @@ function AutomationInput() {
         className="prompt-input giant-input codex-clean-input"
         value={state.input}
         onChange={(event) => actions.setInput(event.target.value)}
-        placeholder="¿Qué querés automatizar?"
+        placeholder="Ejemplo: Quiero recibir un mail todos los días a las 9"
       />
 
       <div className="codex-action-row">
@@ -42,10 +43,10 @@ function AutomationInput() {
           Simular
         </button>
         <button type="button" className="secondary-button" onClick={() => void handleConnect()}>
-          Conectar
+          Conectar apps
         </button>
         <button type="button" className="primary-button" onClick={() => void handleExecute()}>
-          Ejecutar
+          Activar
         </button>
       </div>
     </section>

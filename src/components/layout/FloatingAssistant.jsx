@@ -4,45 +4,45 @@ import { useAppState } from '../../state/appState';
 const assistantTips = {
   chat: [
     {
-      body: 'Decime qué querés automatizar y yo armo el flujo.',
+      body: 'Escribí una idea y NEURA la convierte en automatización.',
       actionLabel: 'Abrir CODEX',
       target: 'codex',
     },
   ],
   codex: [
     {
-      body: 'Decime qué querés automatizar y yo armo el flujo.',
+      body: 'Primero contame qué querés automatizar.',
       actionLabel: 'Ver conectores',
       target: 'conectores',
     },
     {
-      body: 'Usá modo práctica para probar sin riesgo.',
-      actionLabel: 'Ver automatizaciones',
-      target: 'automatizaciones',
+      body: 'Después conectá tus apps para usar datos reales.',
+      actionLabel: 'Abrir apps',
+      target: 'conectores',
     },
     {
-      body: 'Conectá Gmail para enviar correos reales.',
-      actionLabel: 'Conectar apps',
-      target: 'conectores',
+      body: 'Probalo en modo práctica antes de activarlo.',
+      actionLabel: 'Ver automatizaciones',
+      target: 'automatizaciones',
     },
   ],
   automatizaciones: [
     {
-      body: 'Acá ves tus flujos listos y las últimas ejecuciones.',
-      actionLabel: 'Crear flujo',
+      body: 'Acá vas a ver tus flujos listos para usar.',
+      actionLabel: 'Crear automatización',
       target: 'codex',
     },
   ],
   conectores: [
     {
-      body: 'Conectá Gmail, Slack o Drive para pasar del modo práctica a la acción.',
+      body: 'Conectar una app te permite pasar de prueba a acción.',
       actionLabel: 'Volver a CODEX',
       target: 'codex',
     },
   ],
   memoria: [
     {
-      body: 'Tu memoria guarda pedidos, contexto y decisiones importantes.',
+      body: 'La memoria guarda contexto útil para seguir trabajando más rápido.',
       actionLabel: 'Ir al chat',
       target: 'chat',
     },
@@ -70,18 +70,14 @@ function FloatingAssistant() {
 
     const timer = window.setInterval(() => {
       setTipIndex((current) => (current + 1) % tips.length);
-    }, 5000);
+    }, 5200);
 
     return () => window.clearInterval(timer);
   }, [collapsed, tips]);
 
   if (collapsed) {
     return (
-      <button
-        type="button"
-        className="assistant-fab"
-        onClick={() => setCollapsed(false)}
-      >
+      <button type="button" className="assistant-fab" onClick={() => setCollapsed(false)}>
         NEURA
       </button>
     );
@@ -92,7 +88,7 @@ function FloatingAssistant() {
       <div className="assistant-topline">
         <div>
           <span className="panel-kicker">NEURA</span>
-          <h3>Asistente</h3>
+          <h3>Te guío</h3>
         </div>
         <button
           type="button"
@@ -120,7 +116,7 @@ function FloatingAssistant() {
             className="secondary-button"
             onClick={() => setTipIndex((current) => (current + 1) % tips.length)}
           >
-            Otro consejo
+            Siguiente
           </button>
         ) : null}
       </div>

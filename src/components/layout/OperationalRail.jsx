@@ -11,17 +11,16 @@ function OperationalRail() {
       <section className="glass-panel rail-panel">
         <div className="panel-heading">
           <div>
-            <span className="panel-kicker">Memoria Operativa</span>
-            <h2>Memoria Operativa</h2>
+            <span className="panel-kicker">Memoria</span>
+            <h2>Contexto activo</h2>
           </div>
         </div>
 
         <div className="rail-stack">
-          {state.memory.map((item) => (
+          {state.memory.slice(0, 2).map((item) => (
             <article key={item.id} className="memory-card">
               <strong>{item.title}</strong>
               <p>{item.body}</p>
-              <small>{item.source}</small>
             </article>
           ))}
         </div>
@@ -31,7 +30,7 @@ function OperationalRail() {
         <div className="panel-heading">
           <div>
             <span className="panel-kicker">Automatizaciones</span>
-            <h2>Automatizaciones</h2>
+            <h2>Últimas</h2>
           </div>
         </div>
 
@@ -41,14 +40,14 @@ function OperationalRail() {
               <article key={item.id} className="session-card">
                 <span>{item.platform}</span>
                 <strong>{item.summary}</strong>
-                <p>{item.source === 'chat' ? 'Creada desde chat inteligente' : 'Creada desde CODEX'}</p>
+                <p>{item.source === 'chat' ? 'Desde chat' : 'Desde CODEX'}</p>
               </article>
             ))
           ) : (
             <article className="session-card">
-              <span>Sin actividad</span>
-              <strong>Esperando nuevas rutas</strong>
-              <p>Las automatizaciones recientes van a aparecer acá.</p>
+              <span>Vacío</span>
+              <strong>Todavía no tenés automatizaciones</strong>
+              <p>Creá la primera desde CODEX.</p>
             </article>
           )}
         </div>
@@ -58,7 +57,7 @@ function OperationalRail() {
         <div className="panel-heading">
           <div>
             <span className="panel-kicker">Conectores</span>
-            <h2>Conectores conectados</h2>
+            <h2>Conectados</h2>
           </div>
         </div>
 
@@ -72,28 +71,6 @@ function OperationalRail() {
               </div>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="glass-panel rail-panel compact-rail">
-        <div className="panel-heading">
-          <div>
-            <span className="panel-kicker">Estado IA</span>
-            <h2>Sesión Activa</h2>
-          </div>
-        </div>
-
-        <div className="rail-stack">
-          <article className="session-card">
-            <span>Sesion</span>
-            <strong>{state.session.id}</strong>
-            <p>{state.session.region}</p>
-          </article>
-          <article className="session-card">
-            <span>IA</span>
-            <strong>{state.auth.user.role}</strong>
-            <p>{state.codex.practiceMode ? 'Modo practica activo' : 'Modo practica pausado'}</p>
-          </article>
         </div>
       </section>
     </aside>

@@ -1,42 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const steps = [
-  'Paso 1: Escribí lo que querés automatizar',
-  'Paso 2: NEURA arma el flujo',
-  'Paso 3: Probalo gratis',
-  'Paso 4: Conectá apps reales',
+  '1. Elegí qué querés automatizar',
+  '2. Conectá tus apps',
+  '3. Probá en modo práctica',
+  '4. Activá cuando esté listo',
 ];
 
 function CodexOnboarding() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const alreadySeen = window.localStorage.getItem('neura-codex-onboarding-seen');
-    setVisible(!alreadySeen);
-  }, []);
-
-  function dismiss() {
-    window.localStorage.setItem('neura-codex-onboarding-seen', 'true');
-    setVisible(false);
-  }
-
-  if (!visible) {
-    return null;
-  }
-
   return (
-    <section className="glass-panel cinematic-panel onboarding-panel">
+    <section className="glass-panel cinematic-panel onboarding-panel onboarding-panel-inline">
       <div className="panel-heading compact-panel-heading">
         <div>
-          <span className="panel-kicker">Primeros pasos</span>
-          <h2>Empezá en 30 segundos</h2>
+          <span className="panel-kicker">Guía rápida</span>
+          <h2>Empezá en minutos</h2>
         </div>
-        <button type="button" className="secondary-button" onClick={dismiss}>
-          Entendido
-        </button>
       </div>
 
-      <div className="onboarding-grid">
+      <div className="onboarding-grid onboarding-grid-inline">
         {steps.map((step) => (
           <article key={step} className="onboarding-step">
             <strong>{step}</strong>

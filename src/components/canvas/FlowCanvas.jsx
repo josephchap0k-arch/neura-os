@@ -38,17 +38,17 @@ function CanvasBody() {
     const nodes = [
       triggerNode && {
         ...triggerNode,
-        position: { x: 80, y: 140 },
+        position: { x: 72, y: 110 },
         draggable: false,
       },
       agentNode && {
         ...agentNode,
-        position: { x: 390, y: 140 },
+        position: { x: 326, y: 110 },
         draggable: false,
       },
       actionNode && {
         ...actionNode,
-        position: { x: 700, y: 140 },
+        position: { x: 580, y: 110 },
         draggable: false,
       },
     ].filter(Boolean);
@@ -75,11 +75,12 @@ function CanvasBody() {
 
   return (
     <section className="glass-panel cinematic-panel codex-canvas-panel">
-      <div className="panel-heading compact-panel-heading">
+      <div className="panel-heading compact-panel-heading flow-heading">
         <div>
           <span className="panel-kicker">Flujo</span>
-          <h2>Trigger - Agente IA - Acción</h2>
+          <h2>Así se va a ejecutar</h2>
         </div>
+        <span className="flow-caption">Trigger → Agente IA → Acción</span>
       </div>
 
       <div className="flow-surface flow-surface-simple">
@@ -99,7 +100,7 @@ function CanvasBody() {
           proOptions={{ hideAttribution: true }}
           defaultEdgeOptions={{ type: 'neura', animated: true }}
         >
-          <Background color="rgba(0, 229, 255, 0.08)" gap={40} />
+          <Background color="rgba(244, 247, 255, 0.06)" gap={32} />
         </ReactFlow>
       </div>
     </section>

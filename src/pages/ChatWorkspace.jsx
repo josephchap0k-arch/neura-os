@@ -13,7 +13,8 @@ const examples = [
 function ChatWorkspace() {
   const { state, actions } = useAppState();
   const [exampleIndex, setExampleIndex] = useState(0);
-  const previewInput = state.chat.draft.trim() || 'quiero automatizar respuestas VIP desde Gmail hacia Slack';
+  const previewInput =
+    state.chat.draft.trim() || 'quiero automatizar respuestas VIP desde Gmail hacia Slack';
   const livePreview = useMemo(() => parseAutomationInput(previewInput), [previewInput]);
 
   useEffect(() => {
@@ -30,11 +31,9 @@ function ChatWorkspace() {
         <section className="center-stage">
           <section className="glass-panel command-stage">
             <div className="command-copy">
-              <span className="panel-kicker">Centro Operativo</span>
-              <h1>Un centro operativo de automatización del futuro.</h1>
-              <p>
-                Conversá con NEURA como si fuera tu operador ejecutivo. Cuando aparezca una intención de automatizar, el sistema abre CODEX y construye el flujo solo.
-              </p>
+              <span className="panel-kicker">Centro operativo</span>
+              <h1>Automatizá tareas sin tocar código.</h1>
+              <p>Escribí una idea y NEURA te muestra cómo se va a ejecutar.</p>
             </div>
 
             <div className="composer-shell giant-composer">
@@ -42,11 +41,11 @@ function ChatWorkspace() {
                 className="prompt-input giant-input"
                 value={state.chat.draft}
                 onChange={(event) => actions.setChatDraft(event.target.value)}
-                placeholder="Decime qué querés automatizar..."
+                placeholder="Decime qué querés automatizar"
               />
 
               <div className="dynamic-example">
-                <span>Ejemplo activo</span>
+                <span>Ejemplo</span>
                 <strong>{examples[exampleIndex]}</strong>
               </div>
 
@@ -66,7 +65,7 @@ function ChatWorkspace() {
               <div className="input-footer">
                 <div className="status-pill">
                   <span className="status-dot" />
-                  {state.chat.busy ? 'Abriendo CODEX...' : 'Chat Inteligente listo'}
+                  {state.chat.busy ? 'Abriendo CODEX' : 'Listo para ayudarte'}
                 </div>
                 <button
                   type="button"
@@ -74,7 +73,7 @@ function ChatWorkspace() {
                   onClick={() => void actions.sendChatMessage()}
                   disabled={state.chat.busy}
                 >
-                  Activar
+                  Enviar
                 </button>
               </div>
             </div>
@@ -84,18 +83,15 @@ function ChatWorkspace() {
             <section className="glass-panel chat-panel cinematic-panel">
               <div className="panel-heading">
                 <div>
-                  <span className="panel-kicker">Chat Inteligente</span>
-                  <h2>Chat Inteligente</h2>
+                  <span className="panel-kicker">Chat</span>
+                  <h2>Conversación</h2>
                 </div>
-                <span className="confidence-badge">Sesión Activa: {state.session.workspaceName}</span>
+                <span className="confidence-badge">Sesión activa</span>
               </div>
 
               <div className="message-stream">
                 {state.chat.messages.map((message) => (
-                  <article
-                    key={message.id}
-                    className={`message-card message-${message.role}`}
-                  >
+                  <article key={message.id} className={`message-card message-${message.role}`}>
                     <span>{message.role === 'assistant' ? 'NEURA' : 'Vos'}</span>
                     <p>{message.content}</p>
                   </article>
@@ -106,15 +102,15 @@ function ChatWorkspace() {
             <section className="glass-panel parser-panel cinematic-panel">
               <div className="panel-heading">
                 <div>
-                  <span className="panel-kicker">Flujo Visual Dinámico</span>
-                  <h2>Flujo visual dinámico</h2>
+                  <span className="panel-kicker">Vista previa</span>
+                  <h2>NEURA ya entendió esto</h2>
                 </div>
-                <span className="confidence-badge">{livePreview.confidence}% lectura</span>
+                <span className="confidence-badge">{livePreview.confidence}% listo</span>
               </div>
 
               <div className="detector-grid">
                 <article className="detector-card">
-                  <span>Trigger</span>
+                  <span>Inicio</span>
                   <strong>{livePreview.trigger}</strong>
                 </article>
                 <article className="detector-card">
@@ -122,28 +118,28 @@ function ChatWorkspace() {
                   <strong>{livePreview.action}</strong>
                 </article>
                 <article className="detector-card">
-                  <span>Plataforma</span>
+                  <span>App</span>
                   <strong>{livePreview.platformLabel}</strong>
                 </article>
                 <article className="detector-card">
-                  <span>Horario</span>
+                  <span>Momento</span>
                   <strong>{livePreview.schedule.label}</strong>
                 </article>
               </div>
 
               <div className="chat-flow-line">
                 <div className="flow-orb">
-                  <small>01</small>
-                  <strong>Entrada</strong>
+                  <small>1</small>
+                  <strong>Idea</strong>
                 </div>
                 <div className="flow-link" />
                 <div className="flow-orb">
-                  <small>02</small>
-                  <strong>Parser</strong>
+                  <small>2</small>
+                  <strong>NEURA</strong>
                 </div>
                 <div className="flow-link" />
                 <div className="flow-orb">
-                  <small>03</small>
+                  <small>3</small>
                   <strong>CODEX</strong>
                 </div>
               </div>
@@ -153,13 +149,13 @@ function ChatWorkspace() {
           <section className="glass-panel cinematic-panel">
             <div className="panel-heading">
               <div>
-                <span className="panel-kicker">Logs Inteligentes</span>
-                <h2>Logs inteligentes</h2>
+                <span className="panel-kicker">Actividad</span>
+                <h2>Últimos cambios</h2>
               </div>
             </div>
 
             <div className="log-list">
-              {state.codex.logs.slice(0, 4).map((log) => (
+              {state.codex.logs.slice(0, 3).map((log) => (
                 <article key={log.id} className="log-entry">
                   <div className={`log-marker log-${log.level}`} />
                   <div>

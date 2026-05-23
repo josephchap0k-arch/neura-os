@@ -5,27 +5,27 @@ const headerContent = {
   chat: {
     eyebrow: 'NEURA',
     title: 'Chat',
-    description: 'Hablá con NEURA y convertí una idea en un flujo real.',
+    description: 'Escribí una idea y seguí el flujo en tiempo real.',
   },
   codex: {
     eyebrow: 'CODEX',
     title: 'CODEX',
-    description: 'Creá automatizaciones escribiendo lo que querés.',
+    description: 'Creá automatizaciones con una sola instrucción.',
   },
   automatizaciones: {
     eyebrow: 'CODEX',
     title: 'Automatizaciones',
-    description: 'Tus flujos listos, ordenados y fáciles de revisar.',
+    description: 'Tus flujos, ordenados y listos para activar.',
   },
   conectores: {
     eyebrow: 'CODEX',
     title: 'Conectores',
-    description: 'Conectá apps reales para pasar de prueba a ejecución.',
+    description: 'Conectá tus apps para usar datos reales.',
   },
   memoria: {
     eyebrow: 'NEURA',
     title: 'Memoria',
-    description: 'Todo tu contexto activo en un solo lugar.',
+    description: 'Todo tu contexto útil en un solo lugar.',
   },
 };
 
